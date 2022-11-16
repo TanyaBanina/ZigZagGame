@@ -18,8 +18,11 @@ public class TileScript : MonoBehaviour
     }
     void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player") TileManager.Instance.spawnTile();
-        StartCoroutine(fallDown());
+        if (other.tag == "Player")
+        {
+            TileManager.Instance.spawnTile();
+            StartCoroutine(fallDown());
+        }
     }
 
     IEnumerator fallDown()

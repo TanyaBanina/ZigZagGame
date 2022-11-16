@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TileManager : MonoBehaviour
 {
@@ -26,8 +27,8 @@ public class TileManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        createTiles(30);
-        for (int i = 0; i < 20; i++)
+        createTiles(22);
+        for (int i = 0; i < 22; i++)
         {
             spawnTile();
         }
@@ -67,6 +68,11 @@ public class TileManager : MonoBehaviour
             tmp.SetActive(true);
             tmp.transform.position = currentTile.transform.GetChild(0).position;
             currentTile = tmp;
+        }
+        int pointIndex = Random.Range(0, 10);
+        if(pointIndex == 0)
+        {
+            currentTile.transform.GetChild(1).gameObject.SetActive(true);
         }
     }
 }
