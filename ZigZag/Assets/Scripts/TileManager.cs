@@ -75,4 +75,8 @@ public class TileManager : MonoBehaviour
             currentTile.transform.GetChild(1).gameObject.SetActive(true);
         }
     }
+    public void reset()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
